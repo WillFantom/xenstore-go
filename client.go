@@ -67,6 +67,9 @@ func (c *Client) Error() error {
 //
 // This method blocks until the reply packet is received.
 func (c *Client) submitBytes(op xenStoreOperation, payload []byte, txid uint32) (*Packet, error) {
+	if op != XsWrite {
+		payload = append(payload, NUL)
+	}
 	p, err := NewPacket(op, []byte(payload), 0x0)
 	if err != nil {
 		return nil, err
