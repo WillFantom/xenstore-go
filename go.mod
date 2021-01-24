@@ -1,4 +1,6 @@
-module github.com/joelnb/xenstore-go
+module github.com/willfantom/xenstore-go
+
+go 1.15
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
